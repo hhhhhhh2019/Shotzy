@@ -52,6 +52,11 @@
       <summary>OCR languages</summary>
       <description>Tesseract language codes to use for OCR processing.</description>
     </key>
+    <key name="close-after-copy" type="b">
+      <default>false</default>
+      <summary>Close screenshot tool after copying OCR text</summary>
+      <description>Automatically close the screenshot UI once OCR text is copied to the clipboard.</description>
+    </key>
     <key name="search-engine" type="s">
       <default>'google'</default>
       <summary>Search engine</summary>

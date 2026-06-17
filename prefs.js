@@ -123,6 +123,13 @@ export default class ShotzyPreferences extends ExtensionPreferences {
         }));
         ocrGroup.add(this._createLanguageRow(settings, tesseractLanguages));
 
+        const closeAfterCopyRow = new Adw.SwitchRow({
+            title: 'Close after copying',
+            subtitle: 'Close the screenshot tool automatically once OCR text is copied.',
+        });
+        settings.bind('close-after-copy', closeAfterCopyRow, 'active', Gio.SettingsBindFlags.DEFAULT);
+        ocrGroup.add(closeAfterCopyRow);
+
         const searchPage = new Adw.PreferencesPage({
             title: 'Search',
             icon_name: 'system-search-symbolic',

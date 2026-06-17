@@ -25,6 +25,7 @@ const DEFAULT_OCR = {
     maxEdge: 2400,
     languages: ['eng'],
     searchEngine: 'google',
+    closeAfterCopy: false,
 };
 const TESSDATA_DIR = '/usr/share/tessdata';
 
@@ -569,6 +570,9 @@ export class ScreenshotOCRController {
             this._showMessage('copied OCR text');
         else
             Main.notify('Shotzy OCR', 'Copied OCR text');
+
+        if (this._ocrConfig.closeAfterCopy)
+            Main.screenshotUI?.close();
     }
 
     _searchActiveBoxText() {
@@ -638,6 +642,7 @@ export class ScreenshotOCRController {
             maxEdge: _clamp(this._settings.get_int('selection-max-edge'), 800, 4096),
             languages: _normalizeLanguageSelection(this._settings.get_strv('ocr-languages')),
             searchEngine: this._settings.get_string('search-engine') || 'google',
+            closeAfterCopy: this._settings.get_boolean('close-after-copy'),
         };
     }
 }
