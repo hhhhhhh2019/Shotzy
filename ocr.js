@@ -27,7 +27,7 @@ const DEFAULT_OCR = {
     searchEngine: 'google',
     closeAfterCopy: false,
 };
-const TESSDATA_DIR = '/usr/share/tessdata';
+const TESSDATA_DIR = GLib.getenv('TESSDATA_PREFIX') || '/usr/share/tessdata';
 
 const OCRHighlightOverlay = GObject.registerClass(
 class OCRHighlightOverlay extends St.DrawingArea {
