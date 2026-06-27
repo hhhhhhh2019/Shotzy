@@ -16,7 +16,7 @@ const DEFAULTS = {
     'highlight-border-color': '0.92,0.94,0.97,0.34',
 };
 
-const TESSDATA_DIR = '/usr/share/tessdata';
+const TESSDATA_DIR = GLib.getenv('TESSDATA_PREFIX') || '/usr/share/tessdata';
 const DEFAULT_OCR_LANGUAGES = ['eng'];
 const HIDDEN_TESSERACT_LANGUAGES = new Set(['osd']);
 export default class ShotzyPreferences extends ExtensionPreferences {
