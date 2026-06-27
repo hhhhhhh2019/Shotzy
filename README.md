@@ -31,7 +31,7 @@ environment.variables = {
     TESSDATA_PREFIX = "${pkgs.tesseract}/share/tessdata";
 };
 ```
-Shotzy detects installed OCR languages from `/usr/share/tessdata`.
+Shotzy detects installed OCR languages from TESSDATA_PREFIX env variable or from `/usr/share/tessdata` if not specified.
 
 [Install](https://github.com/tesseract-ocr/tessdata/tree/main) extra Tesseract language packs to make them selectable in the OCR settings.
 
